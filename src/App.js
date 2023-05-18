@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "./reset.css";
 
 function Square(props){
     return (
@@ -92,14 +93,15 @@ class Game extends React.Component {
     const winner = caluculateWinner(current.squares);
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Go to move#' + move :
-        'Go to game start';
+        move + '番目の手番に戻る':
+        '最初からやり直す';
       return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>
+        <div className="history-button" key={move}>
+          <button
+            onClick={() => this.jumpTo(move)}>
             {desc}
           </button>
-        </li>
+        </div>
       );
     });
     
@@ -107,11 +109,14 @@ class Game extends React.Component {
     if (winner) {
       status = "Winner: " + winner;
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      status = "Next player: " + (this.state.xIsNext ? "私の番です" : "あなたの番です");
     }
 
     return (
-      <div>
+      <div className="App-inner">
+        <div className="game-player">
+          {status}
+        </div>
         <div className="game">
           <div className="game-board">
             <Board
@@ -120,17 +125,14 @@ class Game extends React.Component {
             />
           </div>
         </div>
-        <div className="game-info">
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
+        <div className="rule">手番を変更する</div>
+        <div>{moves}</div>
       </div>
     );
   }
 }
 
 // ==========================================
-//描画の処理
 function App() {
   return (
     <div className="App">

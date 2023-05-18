@@ -1,9 +1,10 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
+  background-color: black;
 }
 
-ol, ul {
+ul {
   padding-left: 30px;
 }
 
@@ -40,11 +41,22 @@ ol, ul {
   background: #ddd;
 }
 
-.game {
-  display: flex;
-  flex-direction: row;
+.game-player {
+  margin-left: 0px;
+  color: #fff;
+  text-align: center;
 }
 
-.game-info {
-  margin-left: 20px;
+.game{
+  justify-content: center;
 }
+
+.rule {
+  text-align: center;
+  color: #fff;
+}
+
+.history-button {
+  text-align: center;
+}
+
