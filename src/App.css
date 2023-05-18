@@ -42,6 +42,7 @@ ul {
 }
 
 .game-player {
+  margin-top: 100px;
   margin-left: 0px;
   color: #fff;
   text-align: center;
